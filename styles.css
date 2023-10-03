@@ -7,4 +7,49 @@ html {
 
 body {
     background-color: darkgrey;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    height: 400px;    
+    width: 300px;
+    border: 1px solid black;
+    flex-direction: column;    
+}
+.displayDiv {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 298px;
+}
+.display {
+    display: flex;
+    height: 90px;
+    width: 290px;
+    border: solid cyan 1px;
+}
+.buttonsDiv {
+    display: flex;
+    flex: 6;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
+}
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 70px;
+    border: solid black 1px;
+    margin: 2px 2px;
 }
