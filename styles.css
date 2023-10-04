@@ -23,18 +23,33 @@ body {
 .displayDiv {
     flex: 2;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     width: 298px;
+    padding: 5px;    
+    border: solid cyan 1px;
 }
 .display {
     display: flex;
-    height: 90px;
-    width: 290px;
-    padding: 0 10px 5px 0;
-    border: solid cyan 1px;
+    flex: 6 0 auto;
+    padding: 0 10px 5px 0;    
     justify-content: end;
     align-items: end;
+}
+.fNum {
+    flex: 7 0 auto;
+    display: flex;
+    justify-content: end;
+    padding: 5px 10px 0 0;
+}
+.operator {
+    flex: 3 0 auto;
+    display: flex;
+    justify-content: end;
+    padding: 5px 10px 0 0;
+}
+.topRowDisplay {
+    display: flex;
+    flex: 2 0 auto;
 }
 .buttonsDiv {
     display: flex;

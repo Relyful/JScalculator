@@ -8,6 +8,8 @@ const clrButton = document.querySelector('.CLR');
 const equalButton = document.querySelector('.equal');
 let activeDisplayNum = ""; //current number displayed on display
 let display = document.querySelector('.display') //actual main display div
+let fNumDiv = document.querySelector('.fNum')
+let operatorDiv = document.querySelector('.operator')
 
 function add(a,b) {
     return a + b;
@@ -45,6 +47,7 @@ function equalize(e) {
     result = operate(fNum, sNum, operator);    
     display.innerHTML = result;
     fNum = result;
+    fNumDiv.innerHTML = fNum;
     activeDisplayNum = result;
     return;
 }
@@ -63,16 +66,20 @@ numberButton.forEach(item => {
 operatorButton.forEach(item => {
     item.addEventListener('click', e => {        
         if(fNum !== '') {
-            sNum = +activeDisplayNum;
-            result = operate(fNum, sNum, operator);
+            // sNum = +activeDisplayNum;
+            // result = operate(fNum, sNum, operator);
             operator = e.target.innerText;
-            display.innerHTML = result;
-            activeDisplayNum = result;
-            fNum = result;            
+            operatorDiv.innerHTML = operator;
+            // display.innerHTML = result;
+            // activeDisplayNum = result;
+            // fNum = result;
+            // fNumDiv.innerHTML = fNum;            
             return;
         }
         operator = e.target.innerText;
+        operatorDiv.innerHTML = operator;
         fNum = +activeDisplayNum;
+        fNumDiv.innerHTML = fNum;
         activeDisplayNum = '';
         display.innerHTML = activeDisplayNum;
     })    
@@ -80,9 +87,11 @@ operatorButton.forEach(item => {
 
 clrButton.addEventListener('click', e => {
     fNum = '';
+    fNumDiv.innerHTML = fNum;
     sNum = ''
     display.innerHTML = '';
     operator = '';
+    operatorDiv.innerHTML = operator;
     result = '';
     activeDisplayNum = '';
 })
