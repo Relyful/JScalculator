@@ -31,7 +31,10 @@ body {
     display: flex;
     height: 90px;
     width: 290px;
+    padding: 0 10px 5px 0;
     border: solid cyan 1px;
+    justify-content: end;
+    align-items: end;
 }
 .buttonsDiv {
     display: flex;
@@ -44,7 +47,7 @@ body {
     flex-wrap: wrap;
     flex: 1;
 }
-.button {
+.button, .numberButton, .operatorButton {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,7 +1,13 @@
-let fNum; //first number of equation
-let sNum; // second number of the equation
+let fNum = ''; //first number of equation
+let sNum = ''; // second number of the equation
 let operator; //operator of the equation
-
+let result = '';
+const numberButton = document.querySelectorAll('.numberButton'); //all number button divs
+const operatorButton = document.querySelectorAll('.operatorButton'); //all operator buttons
+const clrButton = document.querySelector('.CLR');
+const equalButton = document.querySelector('.equal');
+let activeDisplayNum = ""; //current number displayed on display
+let display = document.querySelector('.display') //actual main display div
 
 function add(a,b) {
     return a + b;
@@ -33,3 +39,59 @@ function operate(fNum, sNum, operator) {     //function that choses correct func
         return divide(fNum, sNum);
     }
 }
+
+function equalize(e) {
+    sNum = +activeDisplayNum;
+    result = operate(fNum, sNum, operator);    
+    display.innerHTML = result;
+    fNum = result;
+    activeDisplayNum = result;
+    return;
+}
+
+numberButton.forEach(item => {
+    item.addEventListener('click', e => {
+        const number = e.target.innerText;        
+        if(activeDisplayNum === result) {
+            activeDisplayNum = '';
+        }        
+        activeDisplayNum += number;
+        display.innerText = activeDisplayNum;        
+    })    
+});
+
+operatorButton.forEach(item => {
+    item.addEventListener('click', e => {        
+        if(fNum !== '') {
+            sNum = +activeDisplayNum;
+            result = operate(fNum, sNum, operator);
+            operator = e.target.innerText;
+            display.innerHTML = result;
+            activeDisplayNum = result;
+            fNum = result;            
+            return;
+        }
+        operator = e.target.innerText;
+        fNum = +activeDisplayNum;
+        activeDisplayNum = '';
+        display.innerHTML = activeDisplayNum;
+    })    
+});
+
+clrButton.addEventListener('click', e => {
+    fNum = '';
+    sNum = ''
+    display.innerHTML = '';
+    operator = '';
+    result = '';
+    activeDisplayNum = '';
+})
+
+equalButton.addEventListener('click', e => {
+    if(fNum !== '') {
+        equalize(fNum, sNum, operator);
+    }
+    else {
+        return;
+    }
+})
