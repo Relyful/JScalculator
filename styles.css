@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    background-color: darkgrey;
+    background-color: grey;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -15,59 +15,73 @@ body {
 
 .container {
     display: flex;
+    flex-shrink: 0;
     height: 400px;    
-    width: 300px;
+    width: 270px;
     border: 1px solid black;
     flex-direction: column;    
+    background-color: #e2c19f;
+    border-radius: 5px;
+    padding: 10px;
 }
 .displayDiv {
-    flex: 2;
+    flex: 2 0 auto;
     display: flex;
-    flex-direction: column;
-    width: 298px;
-    padding: 5px;    
-    border: solid cyan 1px;
+    flex-direction: column;    
+    padding: 10px;    
+    background-color: beige;
+    border-radius: 5px;
 }
 .display {
     display: flex;
-    flex: 6 0 auto;
+    flex: 6 0 42px;
     padding: 0 10px 5px 0;    
     justify-content: end;
     align-items: end;
+    border: solid #18A7AD 1px;
 }
 .fNum {
     flex: 7 0 auto;
     display: flex;
     justify-content: end;
     padding: 5px 10px 0 0;
+    border-left: solid #18A7AD 1px;
+    border-top: solid #18A7AD 1px;
 }
 .operator {
     flex: 3 0 auto;
     display: flex;
     justify-content: end;
     padding: 5px 10px 0 0;
+    border-top: solid #18A7AD 1px;
+    border-right: solid #18A7AD 1px;
 }
 .topRowDisplay {
     display: flex;
-    flex: 2 0 auto;
+    flex: 2 0 24px;
 }
 .buttonsDiv {
     display: flex;
-    flex: 6;
+    flex: 6 0 auto;
+    min-width: 0;
 }
 .buttons {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    flex: 1;
+    flex: 1 1 auto;
+    gap: 7px;
+    padding: 10px 0 10px 0;
 }
 .button, .numberButton, .operatorButton {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;    
     border: solid black 1px;
     margin: 2px 2px;
+    background-color: #c4e1a4;
+    border-radius: 3px;
 }
