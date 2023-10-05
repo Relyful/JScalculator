@@ -6,10 +6,12 @@ const numberButton = document.querySelectorAll('.numberButton'); //all number bu
 const operatorButton = document.querySelectorAll('.operatorButton'); //all operator buttons
 const clrButton = document.querySelector('.CLR');
 const equalButton = document.querySelector('.equal');
+const dotButton = document.querySelector('.dot'); //div of dot button
+const bckButton = document.querySelector('.BCK'); //div of bck button
 let activeDisplayNum = ""; //current number displayed on display
 let display = document.querySelector('.display') //actual main display div
-let fNumDiv = document.querySelector('.fNum')
-let operatorDiv = document.querySelector('.operator')
+let fNumDiv = document.querySelector('.fNum') //div on top left of display that shows first number entered
+let operatorDiv = document.querySelector('.operator') //second top part of the display that shows chosen operator
 
 function add(a,b) {
     return a + b;
@@ -38,6 +40,10 @@ function operate(fNum, sNum, operator) {     //function that choses correct func
         return multiply(fNum, sNum);
     }
     if(operator == '/') {
+        if(sNum == 0) {
+            alert('┌∩┐(ಠ_ಠ)┌∩┐');
+            return 0;
+        }
         return divide(fNum, sNum);
     }
 }
@@ -51,7 +57,7 @@ function equalize(e) {
     display.innerHTML = result;
     fNum = result;
     fNumDiv.innerHTML = fNum;
-    activeDisplayNum = result;
+    activeDisplayNum = result.toString();    
     return;
 }
 
@@ -66,17 +72,63 @@ numberButton.forEach(item => {
     })    
 });
 
+// numberButton.forEach(item => {
+//     item.addEventListener('keypress', e => {
+//         console.log('hey');
+//         e.code;
+//     })
+// })
+document.addEventListener('keydown', e => {
+            if(e.key=='1' || e.key=='2' || e.key=='3' || e.key=='4' || 
+            e.key=='5' || e.key=='6' || e.key=='7' || e.key=='8' || 
+            e.key=='9' || e.key=='0') {
+                const number = e.key;        
+                if(activeDisplayNum === result) {
+                    activeDisplayNum = '';
+                }        
+                activeDisplayNum += number;
+                display.innerText = activeDisplayNum; 
+            }
+            else if(e.key=='/' || e.key=='*' || e.key=='-' || e.key=='+') {
+                if(fNum !== '') {            
+                    operator = e.key;
+                    operatorDiv.innerHTML = operator;                      
+                    return;
+                }
+                operator = e.key;
+                operatorDiv.innerHTML = operator;
+                fNum = +activeDisplayNum;
+                fNumDiv.innerHTML = fNum;
+                activeDisplayNum = '';
+                display.innerHTML = activeDisplayNum;
+            }
+            else if(e.key=='.') {
+                if(activeDisplayNum.includes('.')) {
+                    return;
+                }
+                activeDisplayNum += '.';
+                display.innerText = activeDisplayNum;
+            }
+            else if(e.key == 'Enter') {
+                if(fNum !== '') {
+                    equalize(fNum, sNum, operator);
+                }
+                else {
+                    return;
+                }                
+            }
+            else if(e.code == 'Backspace') {
+                e.preventDefault;
+                activeDisplayNum = activeDisplayNum.slice(0, -1);
+                display.innerText = activeDisplayNum;
+            }
+        })
+
 operatorButton.forEach(item => {
     item.addEventListener('click', e => {        
-        if(fNum !== '') {
-            // sNum = +activeDisplayNum;
-            // result = operate(fNum, sNum, operator);
+        if(fNum !== '') {            
             operator = e.target.innerText;
-            operatorDiv.innerHTML = operator;
-            // display.innerHTML = result;
-            // activeDisplayNum = result;
-            // fNum = result;
-            // fNumDiv.innerHTML = fNum;            
+            operatorDiv.innerHTML = operator;                      
             return;
         }
         operator = e.target.innerText;
@@ -106,4 +158,17 @@ equalButton.addEventListener('click', e => {
     else {
         return;
     }
+})
+
+dotButton.addEventListener('click', e => {
+    if(activeDisplayNum.includes('.')) {
+        return;
+    }
+    activeDisplayNum += '.';
+    display.innerText = activeDisplayNum; 
+})
+
+bckButton.addEventListener('click', e => {
+    activeDisplayNum = activeDisplayNum.slice(0, -1);
+    display.innerText = activeDisplayNum;
 })

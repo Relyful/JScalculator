@@ -17,7 +17,7 @@ body {
 .container {
     display: flex;
     flex-shrink: 0;
-    height: 400px;    
+    height: 440px;    
     width: 270px;
     border: 1px solid black;
     flex-direction: column;    
@@ -26,7 +26,7 @@ body {
     padding: 10px;
 }
 .displayDiv {
-    flex: 2 0 auto;
+    flex: 4 0 100px;
     display: flex;
     flex-direction: column;    
     padding: 10px;    
@@ -74,7 +74,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
     flex: 1 1 auto;
-    gap: 7px;
+    gap: 3px;
     padding: 10px 0 10px 0;
 }
 .button, .numberButton, .operatorButton {
