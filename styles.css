@@ -6,6 +6,7 @@ html {
 }
 
 body {
+    font-family: monospace;
     background-color: grey;
     height: 100vh;
     display: flex;
@@ -39,6 +40,7 @@ body {
     justify-content: end;
     align-items: end;
     border: solid #18A7AD 1px;
+    font-size: 22px;
 }
 .fNum {
     flex: 7 0 auto;
@@ -47,6 +49,7 @@ body {
     padding: 5px 10px 0 0;
     border-left: solid #18A7AD 1px;
     border-top: solid #18A7AD 1px;
+    font-size: 12px;
 }
 .operator {
     flex: 3 0 auto;

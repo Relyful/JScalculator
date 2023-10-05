@@ -44,7 +44,10 @@ function operate(fNum, sNum, operator) {     //function that choses correct func
 
 function equalize(e) {
     sNum = +activeDisplayNum;
-    result = operate(fNum, sNum, operator);    
+    result = operate(fNum, sNum, operator);
+    if(result % 10 !== 0) {
+        result = +result.toFixed(10);
+    }    
     display.innerHTML = result;
     fNum = result;
     fNumDiv.innerHTML = fNum;
