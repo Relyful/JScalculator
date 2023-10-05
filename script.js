@@ -64,7 +64,7 @@ function equalize(e) {
 numberButton.forEach(item => {
     item.addEventListener('click', e => {
         const number = e.target.innerText;        
-        if(activeDisplayNum === result) {
+        if(activeDisplayNum == result) {
             activeDisplayNum = '';
         }        
         activeDisplayNum += number;
@@ -83,7 +83,7 @@ document.addEventListener('keydown', e => {
             e.key=='5' || e.key=='6' || e.key=='7' || e.key=='8' || 
             e.key=='9' || e.key=='0') {
                 const number = e.key;        
-                if(activeDisplayNum === result) {
+                if(activeDisplayNum == result) {
                     activeDisplayNum = '';
                 }        
                 activeDisplayNum += number;

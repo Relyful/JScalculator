@@ -88,3 +88,21 @@ body {
     background-color: #c4e1a4;
     border-radius: 3px;
 }
+
+.operatorButton, .CLR, .BCK, .dot, .equal {
+    background-color: #A3B5C0;
+}
+
+.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;        
+    margin: 2px 2px;    
+    border-radius: 3px;
+}
+
+.numberButton:hover, .operatorButton:hover, .CLR:hover, .BCK:hover, .dot:hover, .equal:hover {
+    background-color: #A8415B;
+}
