@@ -1,10 +1,10 @@
 let fNum = ''; //first number of equation
 let sNum = ''; // second number of the equation
 let operator; //operator of the equation
-let result = '';
+let result = ''; //define result string
 const numberButton = document.querySelectorAll('.numberButton'); //all number button divs
 const operatorButton = document.querySelectorAll('.operatorButton'); //all operator buttons
-const clrButton = document.querySelector('.CLR');
+const clrButton = document.querySelector('.CLR'); //div of clr button
 const equalButton = document.querySelector('.equal');
 const dotButton = document.querySelector('.dot'); //div of dot button
 const bckButton = document.querySelector('.BCK'); //div of bck button
@@ -72,13 +72,7 @@ numberButton.forEach(item => {
     })    
 });
 
-// numberButton.forEach(item => {
-//     item.addEventListener('keypress', e => {
-//         console.log('hey');
-//         e.code;
-//     })
-// })
-document.addEventListener('keydown', e => {
+document.addEventListener('keydown', e => {                     //Entire keyboard functionality
             if(e.key=='1' || e.key=='2' || e.key=='3' || e.key=='4' || 
             e.key=='5' || e.key=='6' || e.key=='7' || e.key=='8' || 
             e.key=='9' || e.key=='0') {
@@ -124,7 +118,7 @@ document.addEventListener('keydown', e => {
             }
         })
 
-operatorButton.forEach(item => {
+operatorButton.forEach(item => {        
     item.addEventListener('click', e => {        
         if(fNum !== '') {            
             operator = e.target.innerText;
